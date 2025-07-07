@@ -33,26 +33,15 @@ sys     0m0.003s
 
 #include <stdio.h>
 
-long unsigned int _dp (int ind, long unsigned int dp[]) {
-    int i = 0;
-    long unsigned int s = 0L;
-
-    for (i = 1; i < 5; i++) {
-        s += dp[(ind-i)%4];
-    }
-
-    return s;
-}
-
 int main () {
     int n = 50;
     long unsigned int dp[4] = {1L, 1L, 2L, 4L};
     int i, ind;
-    long unsigned sum = 0L;
+    long unsigned sum;
 
     for (i = 4; i <= n; i++) {
         ind = i % 4;
-        sum = _dp(i, dp);
+        sum = dp[0]+dp[1]+dp[2]+dp[3];
         dp[ind] = sum;
     }
 
