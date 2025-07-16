@@ -120,14 +120,6 @@ int gen_int (int ar[], int len) {
     return r;
 }
 
-int gen_arr (int ar[], int num) {
-    int r = 0;
-
-    while (num) {
-        ar[r] = num%10;
-    }
-}
-
 // return true of all integers in num[] are mutual exclusive to each other
 bool is_mutual_ex (int n, int num[]) {
     int mask = 0, a;
@@ -203,7 +195,7 @@ int cart (int c, int k, int p_n[], int pri[], int num[], PRIME_NUM p[], DIGITS d
             int cr = 1;
 
             // Cartesian product of all prime permutations
-            for (i = 0; i < c; i++) {  /******  someting with pri index is wrong  */
+            for (i = 0; i < c; i++) {
                 cr *= d[i].perm;
             }
 
