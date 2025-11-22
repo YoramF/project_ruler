@@ -10,9 +10,9 @@ is a the N-2 layer of cuoid with dimentions of 2x2xC where C is the 3rd dimentio
 
 The least value of n for which C(n) = 1000 is: 18522
 
-real    14m39.303s
-user    14m38.339s
-sys     0m0.098s
+real    0m8.205s
+user    0m8.178s
+sys     0m0.008s
 
 */
 
@@ -43,9 +43,9 @@ int main() {
     int a, b, c, n;
     long cubes;
 
-    for (a = 1; a <= MAX_DIM; a++) {
-        for (b = a; b <= MAX_DIM; b++) {
-            for (c = b; c <= MAX_DIM; c++) {
+    for (a = 1; layer_cubes(a, 1, 1, 1) <= MAX_CUBES; a++) {
+        for (b = a; layer_cubes(a, b, 1, 1) <= MAX_CUBES; b++) {
+            for (c = b; layer_cubes(a, b, c, 1) <= MAX_CUBES; c++) {
                 n = 1;
                 while (n < MAX_LAYERS) {
                     cubes = layer_cubes(a, b, c, n);
